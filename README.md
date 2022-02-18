@@ -6,9 +6,15 @@ This can actually be modified to work with basically any Java package in JAR for
 
 
 ## Installation
-As of now, you must be in a **conda** environment, then simply run:
+### Conda
+Run
 ```
-pip install -e git+https://github.com/dar-tau/py_ontobuilder.git
+conda install -c conda-forge -y openjdk maven jpype1
+```
+
+then simply run:
+```
+pip install -e git+https://github.com/dar-tau/py_ontobuilder.git@main#egg=ontobuilder
 ```
 
 ## Song
