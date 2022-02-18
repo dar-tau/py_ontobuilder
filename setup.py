@@ -1,20 +1,35 @@
 import setuptools
 from setuptools.command.install import install
-from conda.cli import main as conda_run
+from setuptools.command.develop import develop
+
+import subprocess
 
 
 pkgs = ['core', 'matching', 'io']
 
 
-class CondaInstallCommand(install):
+def post_install():
+#        subprocess.run('conda install -c conda-forge -y openjdk maven jpype1', shell=True)
+    for pkg in pkgs:
+        path = f'src/ontobuilder/jars/{pkg}'
+        subprocess.run(f'cd {path}; mvn install dependency:copy-dependencies',
+                       shell=True,
+                       stdout=subprocess.PIPE,
+                       stderr=subprocess.STDOUT,
+                       universal_newlines=True)
+
+
+class InstallCommand(install):
     def run(self):
         install.run(self)
-        conda_run('conda', 'install', '-c', 'conda-forge', '-y', 'openjdk', 'maven', 'jpype1')
-        for pkg in pkgs:
-            path = f'src/ontobuilder/jars/{pkg}'
-            conda_run('cd', path)
-            conda_run('mvn', 'install', 'dependency:copy-dependencies')
+        post_install()
         
+
+class DevelopCommand(develop):
+    def run(self):
+        develop.run(self)
+        post_install()        
+
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -39,6 +54,7 @@ setuptools.setup(
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.6",
     cmdclass={
-        'install': CondaInstallCommand,
+        'install': InstallCommand,
+        'develop': DevelopCommand
     }
 )
