@@ -6,7 +6,10 @@ This can actually be modified to work with basically any Java package in JAR for
 
 
 ## Installation
-
+As of now, you must be in a **conda** environment, then simply run:
+```
+pip install -e git+https://github.com/dar-tau/py_ontobuilder.git
+```
 
 ## Song
 "

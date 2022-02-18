@@ -9,7 +9,12 @@ pkgs = ['core', 'matching', 'io']
 
 
 def post_install():
-#        subprocess.run('conda install -c conda-forge -y openjdk maven jpype1', shell=True)
+    subprocess.run('conda install -c conda-forge -y openjdk maven jpype1',
+                   shell=True,
+                   stdout=subprocess.PIPE,
+                   stderr=subprocess.STDOUT,
+                   universal_newlines=True)
+                   
     for pkg in pkgs:
         path = f'src/ontobuilder/jars/{pkg}'
         subprocess.run(f'cd {path}; mvn install dependency:copy-dependencies',
