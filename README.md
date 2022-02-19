@@ -54,7 +54,7 @@ res2 = obw.matchOntologies(o1, o2, "WordNet Match")
 ```
 
 ## Debugging
-* **When importing an nonexistent object from module**, e.g.: 
+* **When importing a nonexistent object from module**, e.g.: 
 ```python
 from ontobuilder.wrapper import blabla
 ```
