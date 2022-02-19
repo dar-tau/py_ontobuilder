@@ -38,20 +38,31 @@ Consequently, we decided to flatten out the module structure by extracting impor
 ## Examples
 ```python
 from ontobuilder.ontology import Ontology, Term
-from ontobuilder.wrapper import OntobuilderWrapper
+from ontobuilder.wrapper import OntoBuilderWrapper
 
-obw = OntobuilderWrapper(True)
+obw = OntoBuilderWrapper(True)
 o1 = Ontology("Test1", "Title Test 1")
 o2 = Ontology("Test2", "Title Test 2")
 o1.setLight(True)
 o2.setLight(True)
 
 o1.addTerm(Term("airplane", "Skipper"))
-o2.addTerm(Term( "aircraft", "B-52"))
+o2.addTerm(Term("aircraft", "B-52"))
 
 res1 = obw.matchOntologies(o1, o2, "Term Match")
 res2 = obw.matchOntologies(o1, o2, "WordNet Match")
 ```
+
+## Debugging
+* **When importing an inexistent object from module**, e.g.: 
+```python
+from ontobuilder.wrapper import blabla
+```
+the exception that will be raised is 
+```
+ModuleNotFoundError: No module named 'ac'
+```
+which is irrelevant. Until I fix that, please be aware of this.
 
 ## Song
 "  
