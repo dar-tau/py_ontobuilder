@@ -15,7 +15,10 @@ _matching = _base_package.matching
 _io = _base_package.io
 
 _base_pkg_name = 'ontobuilder'
-_pkgs = {'core': _core, 'matching': _matching, 'io': _io}
+_pkgs = {'core': _core, 'matching': _matching, 'io': _io, 'ontology': _core.ontology,
+         'imports': _io.imports, 'exports': _io.exports, 'algorithms': _matching.algorithms,
+         'wrapper': _matching.wrapper
+         }
 
 
 # importer trick
