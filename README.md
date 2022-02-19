@@ -18,6 +18,7 @@ conda activate ontobuilder
 conda install -c conda-forge -y openjdk>=11.0.9 maven jpype1
 ```
 In case of problems try explicitly stating the following versions:
+
 jpype1=1.3.0  
 maven=3.6.3  
 openjdk=11.0.9.1  
