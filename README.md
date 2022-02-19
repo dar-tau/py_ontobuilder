@@ -13,10 +13,14 @@ conda create -n ontobuilder
 conda activate ontobuilder
 ```
 
-2. Run
+2. Install dependecies
 ```
 conda install -c conda-forge -y openjdk>=11.0.9 maven jpype1
 ```
+In case of problems try explicitly stating the following versions:
+jpype1=1.3.0  
+maven=3.6.3  
+openjdk=11.0.9.1  
 
 3. Then simply run:
 ```
@@ -79,6 +83,32 @@ the exception that will be raised is
 ModuleNotFoundError: No module named 'ac'
 ```
 which is irrelevant. Until I fix that, please be aware of this.
+
+* **You might need to use [JPype](https://github.com/jpype-project/jpype)**. I tried to keep this to the minimum, but in cases where you do need here are some main tips.  
+
+You can import from Java package directly from Python after running:
+```python
+import jpype.imports
+```
+Now packages in Java are available for you (specifically, they are required to be inside of `java`, `com`, `org`, `edu`, `mil` and maybe a few more), eg.:
+```python
+from java.io import File
+import org.jdom
+```
+
+In case you need Java types, you can import them from `jpype.types`:
+```python
+from jpype.types import JString
+```
+
+* **If you encounter JVM problems**: This is not supposed to happen. But if you see
+
+```
+OSError: JVM is already started
+```
+
+This means that you tried to start another JVM through jpype while ontobuilder's JVM is already started. This might happen if another package using jpype is imported. Currently, there's no easy solution, but I might solve this later if required.
+
 
 ## Song
 "  
