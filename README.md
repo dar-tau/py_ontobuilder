@@ -53,6 +53,22 @@ res1 = obw.matchOntologies(o1, o2, "Term Match")
 res2 = obw.matchOntologies(o1, o2, "WordNet Match")
 ```
 
+**Importing ontologies from files**: Sadly we must use Java's `File` object rather than the pythonic `open`. To run the following example you will need to download Apertum.xsd from [here](https://raw.githubusercontent.com/shraga89/ontobuilderDev/maven/ontobuilder.io/src/test/resources/Apertum.xsd).
+
+```python
+from ontobuilder.imports import XSDImporterUsingXerces
+import jpype.imports # this will allow for calling java
+			     # imports directly from python
+from java.io import File # this is a Java import 
+
+importer = XSDImporterUsingXerces()
+f = File("./Apertum.xsd")
+o = importer.importFile(f)
+
+assert o.getAllTermsCount() == 144	
+
+```
+
 ## Debugging
 * **When importing a nonexistent object from module**, e.g.: 
 ```python
