@@ -35,10 +35,28 @@ Consequently, we decided to flatten out the module structure by extracting impor
 * **ontobuilder.algorithms** (ontobuilder.matching.algorithms)
 * **ontobuilder.wrapper** (ontobuilder.matching.wrapper)
 
+## Examples
+```python
+from ontobuilder.ontology import Ontology, Term
+from ontobuilder.wrapper import OntobuilderWrapper
+
+obw = OntobuilderWrapper(True)
+o1 = Ontology("Test1", "Title Test 1")
+o2 = Ontology("Test2", "Title Test 2")
+o1.setLight(True)
+o2.setLight(True)
+
+o1.addTerm(Term("airplane", "Skipper"))
+o2.addTerm(Term( "aircraft", "B-52"))
+
+res1 = obw.matchOntologies(o1, o2, "Term Match")
+res2 = obw.matchOntologies(o1, o2, "WordNet Match")
+```
+
 ## Song
 "  
 Ontobuilder.  
 Qu'est-ce que c'est?  
 Pa-Pa-Pa-Pa Python - far better!  
-Plu-, Plu-, Plug, Plug, Plug and Play!  
+Run, run, run, plug and play!  
 "
