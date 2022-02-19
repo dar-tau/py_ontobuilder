@@ -85,7 +85,7 @@ ModuleNotFoundError: No module named 'ac'
 ```
 which is irrelevant. Until I fix that, please be aware of this.
 
-* **You might need to use [JPype](https://github.com/jpype-project/jpype)**. I tried to keep this to the minimum, but in cases where you do need here are some main tips.  
+* **You might need to use [JPype](https://github.com/jpype-project/jpype)**. I tried to keep this to a minimum, but in cases where you do need here are some main tips.  
 
 You can import from Java package directly from Python after running:
 ```python
@@ -108,7 +108,7 @@ from jpype.types import JString
 OSError: JVM is already started
 ```
 
-This means that you tried to start another JVM through jpype while ontobuilder's JVM is already started. This might happen if another package using jpype is imported. Currently, there's no easy solution, but I might solve this later if required.
+This means that you tried to start another JVM through jpype while ontobuilder's JVM is already running (or vice versa). This might happen if another package using jpype is imported. Currently, there's no easy solution, but I might solve this later if required.
 
 
 ## Song
