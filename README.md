@@ -9,7 +9,7 @@ This can actually be modified to work with basically any Java package in JAR for
 ### Conda
 1. (**Optional**) Create new environment (might be useful if package conflicts with other packages arise in step 2):
 ```
-conda create -n ontobuilder
+conda create -n ontobuilder python
 conda activate ontobuilder
 ```
 
