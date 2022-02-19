@@ -36,6 +36,7 @@ Consequently, we decided to flatten out the module structure by extracting impor
 * **ontobuilder.wrapper** (ontobuilder.matching.wrapper)
 
 ## Examples
+**Matching ontologies**:
 ```python
 from ontobuilder.ontology import Ontology, Term
 from ontobuilder.wrapper import OntoBuilderWrapper
@@ -57,8 +58,7 @@ res2 = obw.matchOntologies(o1, o2, "WordNet Match")
 
 ```python
 from ontobuilder.imports import XSDImporterUsingXerces
-import jpype.imports # this will allow for calling java
-			     # imports directly from python
+import jpype.imports # this will allow for calling java imports directly from python
 from java.io import File # this is a Java import 
 
 importer = XSDImporterUsingXerces()
