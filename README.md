@@ -2,7 +2,7 @@
 
 This is a Python port to [Ontobuilder](https://github.com/shraga89/ontobuilderDev).
 
-This can actually be modified to work with basically any Java package in JAR format by replacing the contents of `src/ontobuilder/jars` and adapting `src/ontobuilder/__init__.py` accordingly. 
+This can actually be modified to work with basically any Java package in JAR format by replacing the contents of `src/ontobuilder/jars` and adapting `src/ontobuilder/__init__.py` and `setup.py` accordingly. 
 
 
 ## Installation
@@ -24,7 +24,7 @@ pip install -e git+https://github.com/dar-tau/py_ontobuilder.git@main#egg=ontobu
 ```
 
 ## Package Structure
-the main three submodules are: **ontobuilder.core**, **ontobuilder.matching**, **ontobuilder.io**. However, in Python, unlike Java, we prefer less hierarchical submodule paths. 
+The main three submodules are: **ontobuilder.core**, **ontobuilder.matching**, **ontobuilder.io**. However, in Python, unlike Java, we prefer less hierarchical submodule paths. 
 Consequently, we decided to flatten out the module structure by extracting important submodules to the second layer of the hierarchy (namely, directly under ontobuilder):
 * **ontobuilder.core**
 * **ontobuilder.matching**
@@ -57,6 +57,6 @@ res2 = obw.matchOntologies(o1, o2, "WordNet Match")
 "  
 Ontobuilder.  
 Qu'est-ce que c'est?  
-Pa-Pa-Pa-Pa Python - far better!  
-Run, run, run, plug and play!  
+Pa-Pa-Pa Pa-Pa-Python - far better!  
+Run, run, run, run... plug and play!  
 "
